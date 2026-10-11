@@ -1,8 +1,8 @@
 import MainNews from "@/components/MainNews";
-import Marquee from "@/components/Marquee";
+// import Marquee from "@/components/Marquee";
 import MostRead from "@/components/MostRead";
 import NewsCard from "@/components/NewsCard";
-import Image from "next/image";
+// import Image from "next/image";
 
 interface IotherSection {
   curationId:string,
@@ -30,7 +30,7 @@ export default async function Home() {
 
   return (
     <div>
-      <Marquee />
+     
 
       <div className="max-w-7xl mx-auto grid grid-cols-3 gap-3">
         {/* news section */}

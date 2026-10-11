@@ -1,4 +1,3 @@
-
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -13,10 +12,9 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="container mx-auto max-w-7xl mt-4 px-4">
+    <footer className="w-full mt-2">
       <div className="bg-black text-white rounded-md p-6 md:p-8">
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-
           {/* Logo */}
           <div>
             <Link href="/">
@@ -48,21 +46,16 @@ const Footer = () => {
 
           {/* Copyright */}
           <div className="text-center text-gray-300 text-sm">
-            <p>
-              © ২০২৬ DeshNews24.
-            </p>
+            <p>© ২০২৬ DeshNews24.</p>
             <p>সর্বস্বত্ব সংরক্ষিত।</p>
           </div>
-
         </div>
 
         <div className="border-t font-semibold border-gray-700 mt-6 pt-4 text-center text-gray-400 text-sm">
-          সম্পাদক : আব্দুর রহমান নাঈম 
-  <p className="mb-2"></p>
-  <p className="text-white  text-base">
-   
-  </p>
-</div>
+          সম্পাদক : আব্দুর রহমান নাঈম
+          <p className="mb-2"></p>
+          <p className="text-white  text-base"></p>
+        </div>
       </div>
     </footer>
   );
