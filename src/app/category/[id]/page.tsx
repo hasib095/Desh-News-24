@@ -9,7 +9,11 @@ interface ICategoryNews {
   imageAlt: string;
   category: string;
 }
-const CategoryNews = async ({ params }) => {
+const CategoryNews = async ({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) => {
   const { id } = await params;
   //console.log(id)
 

@@ -2,7 +2,24 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-const NewsDetails = async ({ params }) => {
+interface INewsDetails {
+  title: string;
+  firstPublished: string;
+  description?: {
+    blocks?: { text: string }[];
+  };
+  imageUrl: string;
+  text: string;
+  topics?: { id: string; name: string }[];
+  link?: string;
+  source?: string;
+}
+
+const NewsDetails = async ({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) => {
   const { id } = await params;
 
   const res = await fetch(
@@ -13,7 +30,7 @@ const NewsDetails = async ({ params }) => {
     throw new Error("Failed to fetch news details");
   }
 
-  const data = await res.json();
+  const data: { data: INewsDetails } = await res.json();
   const news = data.data;
 
   const formattedDate = new Date(
@@ -85,7 +102,7 @@ const NewsDetails = async ({ params }) => {
           </div>
 
           {/* Topics */}
-          {news.topics?.length > 0 && (
+          {news.topics && news.topics.length > 0 && (
             <div className="mt-10 border-t border-gray-200 pt-6">
               <h2 className="mb-4 text-lg font-bold text-gray-900">
                 সম্পর্কিত বিষয়
