@@ -1,6 +1,7 @@
 import Image from "next/image";
 import NavLinks from "./Navlinks";
 import Link from "next/link";
+import UserInfo from "./UserInfo";
 
 const Header = () => {
   const date = new Date().toLocaleDateString("bn-BD", {
@@ -16,7 +17,10 @@ const Header = () => {
           <div className="mt-2">{date}</div>
         </div>
       </Link>
+
+      <UserInfo/> 
       <NavLinks />
+     
     </div>
   );
 };
