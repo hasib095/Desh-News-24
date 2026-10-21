@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { notFound } from "next/navigation";
 
 interface Navs {
     slug: string
@@ -11,6 +12,11 @@ interface Navs {
 const NavLinks = async () => {
   const res = await fetch("https://news-api-v2.vercel.app/api/categories");
   const data = await res.json();
+
+  if(!data){
+      notFound()
+     }
+
   const navs:Navs[] = data.data;
   const filteredNavs = navs.filter((n) => n.scrapable);
   return (
@@ -22,9 +28,6 @@ const NavLinks = async () => {
           {n.title}
         </Link>   
       ))}
-
-
-
     </div>
     
   );

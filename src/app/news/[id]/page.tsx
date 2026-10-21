@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import React from "react";
 
 interface INewsDetails {
@@ -26,11 +27,15 @@ const NewsDetails = async ({
     `https://news-api-v2.vercel.app/api/article/${id}`
   );
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch news details");
-  }
+  // if (!res.ok) {
+  //   throw new Error("Failed to fetch news details");
+  // }
 
   const data: { data: INewsDetails } = await res.json();
+   if(!data){
+    notFound()
+   }
+
   const news = data.data;
 
   const formattedDate = new Date(
